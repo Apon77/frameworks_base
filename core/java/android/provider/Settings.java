@@ -5233,14 +5233,16 @@ public final class Settings {
         public static final Validator VOLTE_ICON_STYLE_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
-         * Settings to backup. This is here so that it's in the same place as the settings
-         * keys and easy to update.
-         *
-         * NOTE: Settings are backed up and restored in the order they appear
-         *       in this array. If you have one setting depending on another,
-         *       make sure that they are ordered appropriately.
-         *
+         * Enable/Disable screenshot sound
          * @hide
+         */
+        public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
          */
         @UnsupportedAppUsage
         public static final String[] SETTINGS_TO_BACKUP = {
@@ -5654,6 +5656,7 @@ public final class Settings {
             VALIDATORS.put(SHOW_VOLTE_ICON, SHOW_VOLTE_ICON_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
             VALIDATORS.put(FOD_GESTURE, FOD_GESTURE_VALIDATOR);
+            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
         }
 
         /**
